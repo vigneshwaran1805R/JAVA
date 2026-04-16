@@ -1,0 +1,56 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.sql.*;
+public class SwingJDBCDemo extends JFrame implements ActionListener {
+JLabel l1, l2;
+JTextField t1, t2;
+JButton b1;
+Connection con;
+PreparedStatement ps;
+SwingJDBCDemo() {
+// GUI Components
+l1 = new JLabel(&quot;ID:&quot;);
+l1.setBounds(50, 50, 100, 30);
+t1 = new JTextField();
+t1.setBounds(150, 50, 150, 30);
+l2 = new JLabel(&quot;Name:&quot;);
+l2.setBounds(50, 100, 100, 30);
+t2 = new JTextField();
+t2.setBounds(150, 100, 150, 30);
+b1 = new JButton(&quot;Insert&quot;);
+b1.setBounds(120, 150, 100, 30);
+b1.addActionListener(this);
+add(l1); add(t1);
+add(l2); add(t2);
+add(b1);
+setSize(400, 300);
+setLayout(null);
+setVisible(true);
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+// Database Connection
+try {
+Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+con = DriverManager.getConnection(
+&quot;jdbc:mysql://localhost:3306/studentdb&quot;, &quot;root&quot;, &quot;password&quot;);
+} catch (Exception e) {
+System.out.println(e);
+}
+}
+public void actionPerformed(ActionEvent e) {
+try {
+String id = t1.getText();
+String name = t2.getText();
+String query = &quot;INSERT INTO student VALUES (?, ?)&quot;;
+ps = con.prepareStatement(query);
+ps.setInt(1, Integer.parseInt(id));
+ps.setString(2, name);
+ps.executeUpdate();
+JOptionPane.showMessageDialog(this, &quot;Record Inserted Successfully&quot;);
+} catch (Exception ex) {
+System.out.println(ex);
+}
+}
+public static void main(String[] args) {
+new SwingJDBCDemo();
+}
+}
