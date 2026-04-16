@@ -1,0 +1,31 @@
+File 1: Student.java (inside package)
+package studentpack;
+public class Student {
+private String name;
+private int regNo;
+// Setter methods
+public void setName(String n) {
+name = n;
+}
+public void setRegNo(int r) {
+regNo = r;
+}
+// Getter methods
+public String getName() {
+return name;
+}
+public int getRegNo() {
+return regNo;
+}
+}
+File 2: PackageEncapsulationDemo.java
+import studentpack.Student;
+public class PackageEncapsulationDemo {
+public static void main(String[] args) {
+Student s = new Student();
+s.setName(&quot;Abishek&quot;);
+s.setRegNo(101);
+System.out.println(&quot;Student Name: &quot; + s.getName());
+System.out.println(&quot;Register Number: &quot; + s.getRegNo());
+}
+}
