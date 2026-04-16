@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+public class CollectionDemo {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+ArrayList&lt;String&gt; students = new ArrayList&lt;&gt;();
+System.out.print(&quot;Enter number of students: &quot;);
+int n = sc.nextInt();
+sc.nextLine();
+for (int i = 0; i &lt; n; i++) {
+System.out.print(&quot;Enter student name: &quot;);
+String name = sc.nextLine();
+students.add(name);
+}
+System.out.println(&quot;\nStudent List:&quot;);
+for (String s : students) {
+System.out.println(s);
+}
+sc.close();
+}
+}
