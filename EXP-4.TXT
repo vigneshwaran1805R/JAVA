@@ -1,0 +1,43 @@
+import java.util.Scanner;
+// Base class
+class Person {
+String name;
+int age;
+void getPersonDetails() {
+Scanner sc = new Scanner(System.in);
+System.out.print(&quot;Enter Name: &quot;);
+name = sc.nextLine();
+System.out.print(&quot;Enter Age: &quot;);
+age = sc.nextInt();
+}
+void displayPersonDetails() {
+System.out.println(&quot;Name: &quot; + name);
+System.out.println(&quot;Age: &quot; + age);
+}
+}
+// Derived class
+class Student extends Person {
+int regNo;
+String department;
+void getStudentDetails() {
+Scanner sc = new Scanner(System.in);
+System.out.print(&quot;Enter Register Number: &quot;);
+regNo = sc.nextInt();
+sc.nextLine();
+System.out.print(&quot;Enter Department: &quot;);
+department = sc.nextLine();
+}
+void displayStudentDetails() {
+displayPersonDetails(); // Reusing base class method
+System.out.println(&quot;Register Number: &quot; + regNo);
+System.out.println(&quot;Department: &quot; + department);
+}
+}
+public class InheritanceDemo {
+public static void main(String[] args) {
+Student s = new Student();
+s.getPersonDetails(); // Base class method
+s.getStudentDetails(); // Derived class method
+s.displayStudentDetails();
+}
+}
