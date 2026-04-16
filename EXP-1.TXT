@@ -1,0 +1,69 @@
+import java.util.Scanner;
+public class ControlStatementsDemo {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+int choice;
+do {
+System.out.println(&quot;\n===== STUDENT UTILITY APP =====&quot;);
+System.out.println(&quot;1. Check Even or Odd&quot;);
+System.out.println(&quot;2. Find Largest of 3 Numbers&quot;);
+System.out.println(&quot;3. Multiplication Table&quot;);
+System.out.println(&quot;4. Print Prime Numbers up to N&quot;);
+System.out.println(&quot;5. Exit&quot;);
+System.out.print(&quot;Enter your choice: &quot;);
+choice = sc.nextInt();
+switch (choice) {
+case 1:
+System.out.print(&quot;Enter a number: &quot;);
+int num = sc.nextInt();
+if (num % 2 == 0)
+System.out.println(num + &quot; is EVEN&quot;);
+else
+System.out.println(num + &quot; is ODD&quot;);
+break;
+case 2:
+System.out.print(&quot;Enter three numbers: &quot;);
+int a = sc.nextInt();
+int b = sc.nextInt();
+int c = sc.nextInt();
+if (a &gt;= b &amp;&amp; a &gt;= c)
+System.out.println(&quot;Largest is: &quot; + a);
+else if (b &gt;= a &amp;&amp; b &gt;= c)
+System.out.println(&quot;Largest is: &quot; + b);
+else
+System.out.println(&quot;Largest is: &quot; + c);
+break;
+case 3:
+System.out.print(&quot;Enter a number: &quot;);
+int n = sc.nextInt();
+for (int i = 1; i &lt;= 10; i++) {
+System.out.println(n + &quot; x &quot; + i + &quot; = &quot; + (n * i));
+}
+break;
+case 4:
+System.out.print(&quot;Enter limit: &quot;);
+int limit = sc.nextInt();
+System.out.println(&quot;Prime numbers:&quot;);
+for (int i = 2; i &lt;= limit; i++) {
+boolean isPrime = true;
+for (int j = 2; j &lt;= i / 2; j++) {
+if (i % j == 0) {
+isPrime = false;
+break;
+}
+}
+if (isPrime)
+System.out.print(i + &quot; &quot;);
+}
+System.out.println();
+break;
+case 5:
+System.out.println(&quot;Exiting Application...&quot;);
+break;
+default:
+System.out.println(&quot;Invalid Choice! Try again.&quot;);
+}
+} while (choice != 5);
+sc.close();
+}
+}
