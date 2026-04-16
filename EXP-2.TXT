@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class ArrayExample {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+System.out.print(&quot;Enter number of subjects: &quot;);
+int n = sc.nextInt();
+int[] marks = new int[n];
+int total = 0;
+for (int i = 0; i &lt; n; i++) {
+System.out.print(&quot;Enter marks for subject &quot; + (i + 1) + &quot;: &quot;);
+marks[i] = sc.nextInt();
+total += marks[i];
+}
+double average = (double) total / n;
+System.out.println(&quot;\nMarks Entered:&quot;);
+for (int i = 0; i &lt; n; i++) {
+System.out.println(&quot;Subject &quot; + (i + 1) + &quot;: &quot; + marks[i]);
+}
+System.out.println(&quot;\nTotal Marks: &quot; + total);
+System.out.println(&quot;Average Marks: &quot; + average);
+sc.close();
+}
+}
