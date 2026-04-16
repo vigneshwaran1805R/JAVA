@@ -1,0 +1,28 @@
+import java.util.Scanner;
+class Student {
+String name;
+int regNo;
+int marks;
+void getDetails() {
+Scanner sc = new Scanner(System.in);
+System.out.print(&quot;Enter Student Name: &quot;);
+name = sc.nextLine();
+System.out.print(&quot;Enter Register Number: &quot;);
+regNo = sc.nextInt();
+System.out.print(&quot;Enter Marks: &quot;);
+marks = sc.nextInt();
+}
+void displayDetails() {
+System.out.println(&quot;\nStudent Details&quot;);
+System.out.println(&quot;Name: &quot; + name);
+System.out.println(&quot;Register Number: &quot; + regNo);
+System.out.println(&quot;Marks: &quot; + marks);
+}
+}
+public class ClassObjectDemo {
+public static void main(String[] args) {
+Student s1 = new Student(); // Object creation
+s1.getDetails(); // Method call
+s1.displayDetails();
+}
+}
