@@ -1,0 +1,26 @@
+import java.io.*;
+public class FileHandlingDemo {
+public static void main(String[] args) {
+try {
+// Writing data to file
+FileWriter writer = new FileWriter(&quot;student.txt&quot;);
+writer.write(&quot;Name: Tilak\n&quot;);
+writer.write(&quot;Department: CSE\n&quot;);
+writer.write(&quot;University: Karunya Institute\n&quot;);
+writer.close();
+System.out.println(&quot;Data written to file successfully.\n&quot;);
+// Reading data from file
+FileReader reader = new FileReader(&quot;student.txt&quot;);
+BufferedReader br = new BufferedReader(reader);
+String line;
+System.out.println(&quot;Reading data from file:&quot;);
+while ((line = br.readLine()) != null) {
+System.out.println(line);
+}
+br.close();
+}
+catch (IOException e) {
+System.out.println(&quot;An error occurred.&quot;);
+}
+}
+}
