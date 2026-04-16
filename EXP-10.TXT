@@ -1,0 +1,31 @@
+import java.sql.*;
+public class JDBCDemo {
+public static void main(String[] args) {
+try {
+// Load Driver
+Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+// Establish Connection
+Connection con = DriverManager.getConnection(
+&quot;jdbc:mysql://localhost:3306/studentdb&quot;, &quot;root&quot;, &quot;password&quot;);
+// Create Statement
+Statement stmt = con.createStatement();
+// Insert Data
+String insertQuery = &quot;INSERT INTO student VALUES (101, &#39;Tilak&#39;)&quot;;
+stmt.executeUpdate(insertQuery);
+System.out.println(&quot;Data inserted successfully.\n&quot;);
+// Retrieve Data
+ResultSet rs = stmt.executeQuery(&quot;SELECT * FROM student&quot;);
+System.out.println(&quot;Student Records:&quot;);
+while (rs.next()) {
+int id = rs.getInt(&quot;id&quot;);
+String name = rs.getString(&quot;name&quot;);
+System.out.println(&quot;ID: &quot; + id + &quot;, Name: &quot; + name);
+}
+// Close Connection
+con.close();
+}
+catch (Exception e) {
+System.out.println(e);
+}
+}
+}
