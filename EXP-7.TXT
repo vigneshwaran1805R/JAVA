@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class StringHandlingDemo {
+public static void main(String[] args) {
+
+Scanner sc = new Scanner(System.in);
+
+System.out.print(&quot;Enter a string: &quot;);
+String str = sc.nextLine();
+
+System.out.println(&quot;\nOriginal String: &quot; + str);
+
+// Length of string
+System.out.println(&quot;Length of string: &quot; + str.length());
+// Uppercase and Lowercase
+System.out.println(&quot;Uppercase: &quot; + str.toUpperCase());
+System.out.println(&quot;Lowercase: &quot; + str.toLowerCase());
+
+// Substring
+System.out.println(&quot;Substring (0 to 5): &quot; + str.substring(0, 5));
+
+// Replace
+System.out.println(&quot;Replace &#39;a&#39; with &#39;@&#39;: &quot; + str.replace(&#39;a&#39;, &#39;@&#39;));
+
+// String comparison
+System.out.print(&quot;\nEnter another string to compare: &quot;);
+String str2 = sc.nextLine();
+
+if (str.equals(str2)) {
+System.out.println(&quot;Both strings are equal.&quot;);
+} else {
+System.out.println(&quot;Both strings are not equal.&quot;);
+}
+
+sc.close();
+}
+}
